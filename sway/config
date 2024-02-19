@@ -1,0 +1,167 @@
+# Set super as mod key
+set $mod Mod4
+
+# Set alacritty as terminal
+set $term alacritty
+
+# Set wofi as menu
+set $menu "wofi -modi drun,run --show drun"
+
+# Display config
+output DP-3 resolution 2560x1440@165Hz
+
+# Set Wallpaper
+output DP-3 bg /home/davo/background.png fill
+
+# Default Font
+font pango:FiraCode Nerd Font Mono 8
+
+# Start wireplumber
+exec pulseaudio
+
+# Keyboard Layout
+input "type:keyboard" {
+    xkb_layout gb,us
+}
+
+# Start a terminal
+bindsym $mod+Return exec $term
+
+# Kill focused window
+bindsym $mod+Shift+q kill
+
+# Start your launcher
+bindsym $mod+d exec $menu
+
+# Move floating windows with mod and mouse click
+floating_modifier $mod normal
+
+# Audio Controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10%
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10%
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
+
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Exit sway 
+bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+
+# Window Focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Window Moving
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Switch to workspace
+bindsym $mod+1 workspace number 1
+bindsym $mod+2 workspace number 2
+bindsym $mod+3 workspace number 3
+bindsym $mod+4 workspace number 4
+bindsym $mod+5 workspace number 5
+bindsym $mod+6 workspace number 6
+bindsym $mod+7 workspace number 7
+bindsym $mod+8 workspace number 8
+bindsym $mod+9 workspace number 9
+bindsym $mod+0 workspace number 10
+
+# Move focused window to workspace
+bindsym $mod+Shift+1 move container to workspace number 1
+bindsym $mod+Shift+2 move container to workspace number 2
+bindsym $mod+Shift+3 move container to workspace number 3
+bindsym $mod+Shift+4 move container to workspace number 4
+bindsym $mod+Shift+5 move container to workspace number 5
+bindsym $mod+Shift+6 move container to workspace number 6
+bindsym $mod+Shift+7 move container to workspace number 7
+bindsym $mod+Shift+8 move container to workspace number 8
+bindsym $mod+Shift+9 move container to workspace number 9
+bindsym $mod+Shift+0 move container to workspace number 10
+
+# Change window split settings
+bindsym $mod+b splith
+bindsym $mod+v splitv
+
+bindsym $mod+Shift+s exec --no-startup-id grim -g "$(slurp)" - | wl-copy
+
+# Make the current focus fullscreen
+bindsym $mod+f fullscreen
+
+# Toggle the current focus between tiling and floating mode
+bindsym $mod+Shift+space floating toggle
+
+# Swap focus between the tiling area and the floating area
+bindsym $mod+space focus mode_toggle
+
+# Resize Window
+mode "resize" {
+    bindsym Left resize shrink width 10px
+    bindsym Down resize grow height 10px
+    bindsym Up resize shrink height 10px
+    bindsym Right resize grow width 10px
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Power Mode
+mode "power" {
+    bindsym Shift+s exec loginctl poweroff
+    bindsym Shift+r exec loginctl reboot
+    bindsym s exec loginctl suspend
+
+    # Return to default mode
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+bindsym $mod+Pause mode "power"
+
+# default floating windows
+for_window [class="^steam$" title="^Friends List$"] floating enable
+for_window [class="^steam$" title="Steam - News"] floating enable
+for_window [class="^steam$" title="^Steam Settings$"] floating enable
+for_window [class="^floating$"] floating enable
+for_window [title="^Voxlium"] floating enable
+
+assign [class="^steam$"] workspace number 8
+assign [class="^discord$"] workspace number 9
+assign [class="^Cider$"] workspace number 10
+
+# Gaps
+default_border pixel 2
+gaps outer 5
+gaps inner 3
+
+# Window themes
+set $bg #282828
+set $red #cc241d
+set $green #92971a
+set $yellow #d79921
+set $blue #458588
+set $purple #b16286
+set $aqua #689d68
+set $grey #a89984
+set $darkgrey #1d2021
+set $white #fbf1c7
+
+client.focused		$blue		$blue		$darkgrey	$blue		$blue
+client.focused_inactive	$darkgrey	$darkgrey	$yellow		$darkgrey	$darkgrey
+client.unfocused	$darkgrey	$darkgrey	$yellow		$darkgrey	$darkgrey
+client.urgent		$red		$red		$white		$red		$red
+
+bar swaybar_command waybar
+
+include /etc/sway/config.d/*

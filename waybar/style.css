@@ -1,0 +1,144 @@
+/* Global Settings */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* Remove Backgroun */
+window#waybar {
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* Uniform Border Radius*/
+.modules-left,
+.modules-center,
+.modules-right {
+    border-radius: 18px;
+    font-family: FiraCode Nerd Font Mono;
+    font-size: 12px;
+}
+
+.modules-left {
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: #504945;
+}
+
+.modules-center {
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: #504945;
+}
+
+.modules-right {
+    color: #ebdbb2;
+    padding-right: 10px;
+    padding-left: 10px;
+    background-color: #504945;
+}
+
+/* Workspaces*/
+#workspaces {
+    background-color: transparent;
+}
+
+#workspaces button {
+    color: #ebdbb2;
+    font-family: FiraCode Nerd Font;
+    font-size: 10px;
+}
+
+#workspaces button:hover {
+    background: rgba(0, 0, 0, 0.0);
+    border: rgba(0, 0, 0, 0.0);
+}
+
+#workspaces button.persistent {
+    color: #a89984;
+}
+
+#workspaces button.urgent {
+    color: #cc241d;
+}
+
+/* Window title*/
+#window {
+    color: #ebdbb2;
+    font-weight: bold;
+}
+
+#custom-artix {
+    font-size: 20px;
+    color: #458588;
+    padding-right: 3px;
+    padding-left: 3px;
+}
+
+#custom-ethernet,
+#custom-memory,
+#custom-cpu,
+#custom-volume,
+#custom-btooth,
+#custom-time {
+    font-family: FiraCode Nerd Font;
+    font-size: 14px;
+    color: #ebdbb2;
+    padding-right: 5px;
+}
+
+#vol {
+    background-color: #689d6a;
+}
+
+#net {
+    background-color: #b16286;
+}
+
+#use {
+    background-color: #98971a;
+}
+
+#tray {
+    background-color: #665c54;
+}
+
+#time {
+    background-color: #d79921;
+}
+
+#cpu, #network {
+    padding-right: 10px;
+}
+
+#clock {
+    padding-left: 3px;
+}
+
+/* Mode */
+#mode {
+    font-weight: bold;
+    background-color: #cc241d;
+    color: #ebdbb2;
+}
+
+#time,
+#mode,
+#use,
+#net,
+#vol,
+#tray {
+    padding-left: 6px;
+    padding-right: 6px;
+    border-radius: 10px;
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+#pulseaudio,
+#network,
+#memory,
+#cpu,
+#bluetooth,
+#clock {
+    font-weight: bold;
+}

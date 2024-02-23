@@ -40,6 +40,8 @@ window#waybar {
 /* Workspaces*/
 #workspaces {
     background-color: transparent;
+    padding-right: 6px;
+    margin-top: -1px;
 }
 
 #workspaces button {
@@ -65,13 +67,16 @@ window#waybar {
 #window {
     color: #ebdbb2;
     font-weight: bold;
+    font-size: 12px;
+    padding-left: 6px;
+    padding-right: 6px;
 }
 
-#custom-artix {
-    font-size: 20px;
-    color: #458588;
-    padding-right: 3px;
-    padding-left: 3px;
+#custom-media {
+    padding-left: 6px;
+    padding-right: 6px;
+    font-weight: bold;
+    color: #ebdbb2;
 }
 
 #custom-ethernet,
@@ -83,7 +88,7 @@ window#waybar {
     font-family: FiraCode Nerd Font;
     font-size: 14px;
     color: #ebdbb2;
-    padding-right: 5px;
+    padding-right: 6px;
 }
 
 #vol {
@@ -106,6 +111,14 @@ window#waybar {
     background-color: #d79921;
 }
 
+#window {
+    background: #665c54;
+}
+
+#music {
+    padding-left: 6px;
+}
+
 #cpu, #network {
     padding-right: 10px;
 }
@@ -126,7 +139,8 @@ window#waybar {
 #use,
 #net,
 #vol,
-#tray {
+#tray,
+#window {
     padding-left: 6px;
     padding-right: 6px;
     border-radius: 10px;

@@ -7,12 +7,13 @@
     "margin-left": 5,
     "margin-right": 5,
     "modules-left": [
-        "custom/artix",
-        "sway/workspaces",
-        "sway/mode"
+        "image#gnome-child",
+        "sway/window",
+        "group/music"
     ],
     "modules-center": [
-        "sway/window"
+        "sway/workspaces",
+        "sway/mode"
     ],
     "modules-right": [
         "group/vol",
@@ -25,6 +26,13 @@
         "modules": [
             "custom/volume",
             "pulseaudio"
+        ],
+        "orientation": "horizontal"
+    },
+    "group/music": {
+        "modules": [
+            "image#album-cover",
+            "custom/media"
         ],
         "orientation": "horizontal"
     },
@@ -52,6 +60,24 @@
             "bluetooth"
         ],
         "orientation": "horizontal"
+    },
+    "custom/media": {
+        "format": "{}",
+        "escape": true,
+        "return-type": "json",
+        "max-length": 60,
+        "exec": "/usr/bin/python3 $HOME/.config/waybar/mediaplayer.py --player cider2 2> /dev/null",
+        "exec-if": "pgrep cider"
+    },
+    "image#album-cover": {
+        "exec": "$HOME/.config/waybar/album_art.sh",
+        "size": 16,
+        "signal": 2
+    },
+    "image#gnome-child": {
+        "path": "/home/davo/.config/waybar/gnome-child.png",
+        "size": 18,
+        "tooltip": false
     },
     "sway/workspaces": {
         "persistent-workspaces": {
@@ -84,7 +110,8 @@
         "rewrite": {
             "(.*)Chrome": "Chrome",
             "(.*)Visual Studio Code": "Visual Studio Code",
-            "(.*)Discord": "Discord"
+            "Discord(.*)": "Discord",
+            "": "Desktop"
         }
     },
     "clock": {
@@ -105,7 +132,7 @@
     },
     "network": {
         "interval": 30,
-        "interface": "eth0",
+        "interface": "enp6s0",
         "format-ethernet": "{ipaddr}",
         "format-disconnected": "disconnected",
         "tooltip": false
@@ -124,10 +151,6 @@
     },
     "pulseaudio": {
         "format-muted": "muted",
-        "tooltip": false
-    },
-    "custom/artix": {
-        "format": "",
         "tooltip": false
     },
     "custom/memory": {

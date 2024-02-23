@@ -16,8 +16,8 @@ output DP-3 bg /home/davo/background.png fill
 # Default Font
 font pango:FiraCode Nerd Font Mono 8
 
-# Start wireplumber
-exec pulseaudio
+#start polkit auth
+exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 
 # Keyboard Layout
 input "type:keyboard" {
@@ -42,10 +42,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle
 
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
-bindsym XF86AudioPause exec --no-startup-id playerctl play-pause
-bindsym XF86AudioNext exec --no-startup-id playerctl next
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl -p cider2 play-pause
+bindsym XF86AudioPause exec --no-startup-id playerctl -p cider2 play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl -p cider2 next
+bindsym XF86AudioPrev exec --no-startup-id playerctl -p cider2 previous
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
@@ -119,9 +119,9 @@ bindsym $mod+r mode "resize"
 
 # Power Mode
 mode "power" {
-    bindsym Shift+s exec loginctl poweroff
-    bindsym Shift+r exec loginctl reboot
-    bindsym s exec loginctl suspend
+    bindsym Shift+s exec systemctl poweroff -i, mode "default"
+    bindsym Shift+r exec systemctl reboot, mode "default"
+    bindsym s exec systemctl suspend, mode "default"
 
     # Return to default mode
     bindsym Return mode "default"
@@ -137,7 +137,7 @@ for_window [class="^floating$"] floating enable
 for_window [title="^Voxlium"] floating enable
 
 assign [class="^steam$"] workspace number 8
-assign [class="^discord$"] workspace number 9
+assign [class="^vesktop$"] workspace number 9
 assign [class="^Cider$"] workspace number 10
 
 # Gaps

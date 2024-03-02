@@ -4,16 +4,16 @@
     "spacing": 4,
     "margin-top": 0,
     "margin-bottom": 5,
-    "margin-left": 5,
-    "margin-right": 5,
+    "margin-left": 30,
+    "margin-right": 30,
     "modules-left": [
         "image#gnome-child",
+        "sway/mode",
         "sway/window",
         "group/music"
     ],
     "modules-center": [
-        "sway/workspaces",
-        "sway/mode"
+        "sway/workspaces"
     ],
     "modules-right": [
         "group/vol",

@@ -1,0 +1,87 @@
+* {
+    border-color:   #458588FF;
+    background-colour: #282828FF;
+    background-colour-alt: #3c3836FF;
+    foreground: #ebdbb2;
+}
+
+configuration {
+    modes: [drun];
+    show-icons: true;
+    font: "FiraCode Nerd Font Mono 12";
+    display-drun: "Applications";
+        drun-display-format: "{name}";
+}
+
+* {
+    foreground-colour:  var(foreground);
+}
+
+window {
+    transparency: "real";
+    location: west;
+    width: 325px;
+    x-offset: 8px;
+
+    enabled: true;
+    margin: 0px;
+    padding: 0px;
+    border-radius: 3px;
+    border: 2px solid;
+    border-color: @border-color;
+    background-color: @background-colour;
+}
+
+mainbox {
+    enabled: true;
+    margin: 0px;
+    padding: 6px;
+    border: 0px solid;
+    border-radius: 3px;
+    border-color: @border-color;
+    background-color: transparent;
+    children: ["listview"];
+}
+
+listview {
+    enabled: true;
+    columns: 1;
+    lines: 30;
+    cycle: true;
+    dynamic: true;
+    scrollbar: false;
+    layout: vertical;
+    reverse: false;
+    fixed-height: true;
+    fixed-columns: true;
+    spacing: 5px;
+    margin: 0px;
+    padding: 0px;
+    border: 0px solid;
+    background-color: transparent;
+    text-color: @foreground;
+}
+
+element {
+    enabled: true;
+    spacing: 10px;
+    margin: 0px;
+    padding: 5px 10px;
+    border: 2px solid;
+    border-color: transparent;
+    border-radius:2px;
+    background-color: transparent;
+}
+
+element normal.normal {
+    background-color: @background-colour-alt;
+}
+
+element alternate.normal {
+    background-color: @background-colour-alt;
+}
+
+element selected.normal {
+    background-color: @background-colour-alt;
+    border-color: @border-color;
+}

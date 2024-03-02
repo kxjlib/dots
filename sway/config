@@ -5,7 +5,12 @@ set $mod Mod4
 set $term alacritty
 
 # Set wofi as menu
-set $menu "wofi -modi drun,run --show drun"
+set $menu "rofi -show drun"
+
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=SWAY
+exec wlsunset -l 52.9 -L -1.1
+
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Display config
 output DP-3 resolution 2560x1440@165Hz
@@ -22,6 +27,10 @@ exec --no-startup-id /usr/libexec/polkit-gnome-authentication-agent-1
 # Keyboard Layout
 input "type:keyboard" {
     xkb_layout gb,us
+}
+
+input "type:mouse" {
+	accel_profile "flat"
 }
 
 # Start a terminal
@@ -161,6 +170,9 @@ client.focused		$blue		$blue		$darkgrey	$blue		$blue
 client.focused_inactive	$darkgrey	$darkgrey	$yellow		$darkgrey	$darkgrey
 client.unfocused	$darkgrey	$darkgrey	$yellow		$darkgrey	$darkgrey
 client.urgent		$red		$red		$white		$red		$red
+
+# SwayFX Config
+corner_radius 3
 
 bar swaybar_command waybar
 

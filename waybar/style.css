@@ -2,157 +2,159 @@
 * {
     padding: 0;
     margin: 0;
+    font-family: 'FiraCode Nerd Font Mono';
 }
 
-/* Remove Backgroun */
+button:hover {
+    box-shadow: inherit;
+    text-shadow: inherit;
+    background: inherit;
+    border: 1px solid rgba(0, 0, 0, 0);
+}
+
+/* Remove Background */
 window#waybar {
     background-color: rgba(0, 0, 0, 0);
 }
 
-/* Uniform Border Radius*/
-.modules-left,
-.modules-center,
-.modules-right {
-    border-radius: 18px;
-    font-family: FiraCode Nerd Font Mono;
-    font-size: 12px;
+.modules-left>widget:first-child>#workspaces {
+    margin-left: 0px;
 }
 
-.modules-left {
-    padding-right: 10px;
-    padding-left: 10px;
-    background-color: #504945;
-}
-
-.modules-center {
-    padding-right: 10px;
-    padding-left: 10px;
-    background-color: #504945;
-}
-
-.modules-right {
-    color: #ebdbb2;
-    padding-right: 10px;
-    padding-left: 10px;
-    background-color: #504945;
-}
-
-/* Workspaces*/
-#workspaces {
-    background-color: transparent;
-    padding-right: 6px;
-    margin-top: -1px;
+.modules-right>widget:last-child>#workspaces {
+    margin-right: 0px;
 }
 
 #workspaces button {
+    font-size: 16px;
+    margin-top: 0;
+    margin-bottom: 0;
     color: #ebdbb2;
-    font-family: FiraCode Nerd Font;
-    font-size: 10px;
 }
 
-#workspaces button:hover {
-    background: rgba(0, 0, 0, 0.0);
-    border: rgba(0, 0, 0, 0.0);
+#workspaces {
+    background-color: #282828;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-radius: 15px;
+    border: 2px solid #458588;
 }
 
 #workspaces button.persistent {
     color: #a89984;
 }
 
-#workspaces button.urgent {
-    color: #cc241d;
+#mode {
+    background-color: #282828;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 15px;
+    border: 2px solid #cc241d;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ebdbb2;
+    margin: 0;
 }
 
-/* Window title*/
 #window {
+    background-color: #282828;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 15px;
+    border: 2px solid #b16286;
     color: #ebdbb2;
-    font-weight: bold;
     font-size: 12px;
-    padding-left: 6px;
-    padding-right: 6px;
-}
-
-#custom-media {
-    padding-left: 6px;
-    padding-right: 6px;
     font-weight: bold;
-    color: #ebdbb2;
-}
-
-#custom-ethernet,
-#custom-memory,
-#custom-cpu,
-#custom-volume,
-#custom-btooth,
-#custom-time {
-    font-family: FiraCode Nerd Font;
-    font-size: 14px;
-    color: #ebdbb2;
-    padding-right: 6px;
-}
-
-#vol {
-    background-color: #689d6a;
-}
-
-#net {
-    background-color: #b16286;
-}
-
-#use {
-    background-color: #98971a;
+    margin: 0;
 }
 
 #tray {
-    background-color: #665c54;
-}
-
-#time {
-    background-color: #d79921;
-}
-
-#window {
-    background: #665c54;
-}
-
-#music {
-    padding-left: 6px;
-}
-
-#cpu, #network {
+    background-color: #282828;
     padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 15px;
+    border: 2px solid #d65d0e;
+    margin: 0px
 }
 
 #clock {
-    padding-left: 3px;
-}
-
-/* Mode */
-#mode {
-    font-weight: bold;
-    background-color: #cc241d;
+    background-color: #282828;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 15px;
+    margin: 0px;
     color: #ebdbb2;
-}
-
-#time,
-#mode,
-#use,
-#net,
-#vol,
-#tray,
-#window {
-    padding-left: 6px;
-    padding-right: 6px;
-    border-radius: 10px;
-    margin-top: 3px;
-    margin-bottom: 3px;
-}
-
-#pulseaudio,
-#network,
-#memory,
-#cpu,
-#bluetooth,
-#clock {
     font-weight: bold;
+    font-size: 12px;
+    border: 2px solid #689d6a;
+}
+
+#network {
+    border-radius: 15px;
+    background-color: #282828;
+    padding-right: 10px;
+    padding-left: 10px;
+    margin: 0px;
+    color: #ebdbb2;
+    font-weight: bold;
+    border: 2px solid #d79921;
+    font-size: 20px;
+}
+
+#blueth {
+    background-color: #282828;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 15px;
+    margin: 0px;
+    color: #ebdbb2;
+    font-weight: bold;
+    border: 2px solid #d79921;
+}
+
+#custom-bluetooth-icon {
+    font-size:14px;
+}
+#bluetooth {
+    font-size:12px;
+    padding-left: 5px;
+}
+
+#sound {
+    background-color: #282828;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 15px;
+    margin: 0px;
+    border: 2px solid #98971a;
+    color: #ebdbb2;
+    font-weight: bold;
+}
+
+#pulseaudio {
+    font-size: 20px;
+}
+
+#pulseaudio-slider {
+    padding-left: 5px;
+    min-width: 30px;
+}
+
+#pulseaudio-slider slider {
+    opacity: 0;
+    background-image: none;
+    border: none;
+    box-shadow: none;
+}
+
+#pulseaudio-slider trough {
+    min-height: 10px;
+    min-width: 0px;
+    border-radius: 5px;
+    background-color: #458588;
+}
+
+#pulseaudio-slider highlight {
+    background-color: #458588;
+    border-radius: 4px;
 }
